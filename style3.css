@@ -1,0 +1,490 @@
+/* Portfolio section styles */
+.portfolio {
+    margin: 100px 0;
+    padding: 0 150px;
+    position: relative;
+}
+
+.portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(53, 169, 156, 0.1));
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.portfolio-heading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.portfolio-heading .my-heading {
+    color: #ccd6f6;
+    font-size: 32px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+        120deg,
+        #ccd6f6 0%,
+        #64ffda 25%,
+        #ffffff 50%,
+        #64ffda 75%,
+        #ccd6f6 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+.portfolio-heading .my-heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #64ffda, transparent);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.my-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 2rem 0;
+}
+
+.port-card {
+    background: rgba(17, 34, 64, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(100, 255, 218, 0.2) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.port-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(100, 255, 218, 0.1) 0%,
+        rgba(17, 34, 64, 0.4) 100%
+    );
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.port-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(100, 255, 218, 0.4) !important;
+}
+
+.port-card:hover::before {
+    opacity: 1;
+}
+
+.port-card .image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.port-card .image img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.port-card:hover .image img {
+    transform: scale(1.05);
+}
+
+.port-card .content {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.port-card .greet-heading {
+    color: #64ffda;
+    font-size: 20px;
+    margin: 0 0 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.port-card .small-para {
+    color: #8892b0;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.port-card .tech-stack {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.port-card .tech {
+    font-size: 12px;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'SF Mono', monospace;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio {
+        padding: 0 20px;
+}
+
+.my-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .port-card {
+        max-width: 100%;
+    }
+}
+
+/* Services section styles */
+.services {
+    margin: 100px 0;
+    padding: 0 150px;
+    position: relative;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(53, 169, 156, 0.05));
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.services-heading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.services-heading .my-heading {
+    color: #ccd6f6;
+    font-size: 32px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+        120deg,
+        #ccd6f6 0%,
+        #64ffda 25%,
+        #ffffff 50%,
+        #64ffda 75%,
+        #ccd6f6 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+.services-heading .my-heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #64ffda, transparent);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.my-card {
+    background: rgba(17, 34, 64, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(100, 255, 218, 0.2) !important;
+    padding: 2rem;
+    border-radius: 12px !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.my-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(100, 255, 218, 0.1) 0%,
+        rgba(17, 34, 64, 0.2) 25%,
+        rgba(53, 169, 156, 0.1) 50%,
+        rgba(17, 34, 64, 0.2) 75%,
+        rgba(100, 255, 218, 0.1) 100%
+    );
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    transform-origin: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.my-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.37),
+        inset 0 0 20px rgba(100, 255, 218, 0.2);
+    border-color: rgba(100, 255, 218, 0.4) !important;
+}
+
+.icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 12px;
+    background: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    transition: all 0.3s ease;
+}
+
+.icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+    animation: shine 2s linear infinite;
+    border-radius: inherit;
+}
+
+.icon i {
+    font-size: 28px;
+    color: #64ffda;
+    position: relative;
+    z-index: 1;
+}
+
+.my-card .greet-heading {
+    color: #ccd6f6;
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(120deg, #ccd6f6, #64ffda);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.my-card .small-para {
+    color: #8892b0;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.my-card .common-btn {
+    position: relative;
+    z-index: 1;
+    background: rgba(100, 255, 218, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+}
+
+.my-card .common-btn:hover {
+    background: rgba(100, 255, 218, 0.2);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+/* Contact section styles */
+.contact {
+    margin: 100px 0;
+    padding: 0 150px;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(53, 169, 156, 0.05));
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.contact-heading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.contact-heading .my-heading {
+    color: #ccd6f6;
+    font-size: 32px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+        120deg,
+        #ccd6f6 0%,
+        #64ffda 25%,
+        #ffffff 50%,
+        #64ffda 75%,
+        #ccd6f6 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+.contact-heading .my-heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #64ffda, transparent);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.contact-form-container, .contact-details {
+    background: rgba(17, 34, 64, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(100, 255, 218, 0.2) !important;
+    padding: 40px;
+    border-radius: 12px !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-container::before, .contact-details::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(100, 255, 218, 0.1) 0%,
+        rgba(17, 34, 64, 0.2) 25%,
+        rgba(53, 169, 156, 0.1) 50%,
+        rgba(17, 34, 64, 0.2) 75%,
+        rgba(100, 255, 218, 0.1) 100%
+    );
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    transform-origin: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.contact-form-container:hover, .contact-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.37),
+        inset 0 0 20px rgba(100, 255, 218, 0.2);
+    border-color: rgba(100, 255, 218, 0.4) !important;
+}
+
+.contact-form-container .greet-heading, .contact-details .greet-heading {
+    color: #ccd6f6;
+    font-size: 24px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(120deg, #ccd6f6, #64ffda);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-controls {
+    background: rgba(10, 25, 47, 0.6);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #8892b0;
+    font-size: 16px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.form-controls:focus {
+    border-color: rgba(100, 255, 218, 0.4);
+    outline: none;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+}
+
+textarea.form-controls {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.details {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-header">
+                <a href="index.html#projects" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
+                <h1>Create Your Portfolio</h1>
+            </div>
+        </header>
+
+        <main class="portfolio-form-container">
+            <form id="portfolioForm" class="portfolio-form">
+                <!-- Style Selection -->
+                <div class="form-section style-selection">
+                    <h2>Select CV Style</h2>
+                    <div class="style-options">
+                        <div class="style-option">
+                            <input type="radio" id="modern" name="cvStyle" value="modern" checked>
+                            <label for="modern">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Modern</span>
+                                <p>Clean, professional layout with blue accents</p>
+                            </label>
+                        </div>
+                        <div class="style-option">
+                            <input type="radio" id="classic" name="cvStyle" value="classic">
+                            <label for="classic">
+                                <i class="fas fa-book"></i>
+                                <span>Classic</span>
+                                <p>Traditional format with black and white theme</p>
+                            </label>
+                        </div>
+                        <div class="style-option">
+                            <input type="radio" id="creative" name="cvStyle" value="creative">
+                            <label for="creative">
+                                <i class="fas fa-palette"></i>
+                                <span>Creative</span>
+                                <p>Modern design with colorful accents</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="form-section personal-info">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <input type="text" id="fullName" name="fullName" required placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="location" name="location" required placeholder="Location (City, Country)">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="summary" name="summary" placeholder="Professional Summary (Brief introduction about yourself)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="form-section social-links">
+                    <h2>Social Media & Portfolio Links</h2>
+                    <div class="form-group">
+                        <input type="url" id="linkedin" name="linkedin" placeholder="LinkedIn Profile URL">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="github" name="github" placeholder="GitHub Profile URL">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="portfolio" name="portfolio" placeholder="Personal Website/Portfolio URL">
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="form-section education">
+                    <h2>Education</h2>
+                    <div class="form-group">
+                        <input type="text" id="school" name="school" required placeholder="School/University Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="degree" name="degree" required placeholder="Degree/Certificate">
+                    </div>
+                    <div class="form-group date-range">
+                        <input type="date" id="eduStartDate" name="eduStartDate" required>
+                        <span>to</span>
+                        <input type="date" id="eduEndDate" name="eduEndDate" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="achievements" name="achievements" placeholder="Academic Achievements/Activities"></textarea>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="form-section certifications">
+                    <h2>Certifications</h2>
+                    <div class="form-group">
+                        <input type="text" id="certName" name="certName" placeholder="Certification Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="certIssuer" name="certIssuer" placeholder="Issuing Organization">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="certDate" name="certDate" placeholder="Date Obtained">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="certId" name="certId" placeholder="Certification ID/Credential URL">
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="form-section skills">
+                    <h2>Skills</h2>
+                    <div class="form-group">
+                        <input type="text" id="technicalSkills" name="technicalSkills" required placeholder="Technical Skills (comma separated)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="softSkills" name="softSkills" required placeholder="Soft Skills (comma separated)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="tools" name="tools" placeholder="Tools & Technologies (comma separated)">
+                    </div>
+                </div>
+
+                <!-- Languages Section -->
+                <div class="form-section languages">
+                    <h2>Languages</h2>
+                    <div class="form-group">
+                        <input type="text" id="languages" name="languages" placeholder="Languages (e.g., English - Native, Spanish - Intermediate)">
+                    </div>
+                </div>
+
+                <!-- Work Experience Section -->
+                <div class="form-section experience">
+                    <h2>Work Experience</h2>
+                    <div class="form-group">
+                        <input type="text" id="company" name="company" required placeholder="Company Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="position" name="position" required placeholder="Position">
+                    </div>
+                    <div class="form-group date-range">
+                        <input type="date" id="workStartDate" name="workStartDate" required>
+                        <span>to</span>
+                        <input type="date" id="workEndDate" name="workEndDate" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="responsibilities" name="responsibilities" required placeholder="Key Responsibilities"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="achievements_work" name="achievements_work" placeholder="Key Achievements"></textarea>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="form-section projects">
+                    <h2>Projects</h2>
+                    <div class="form-group">
+                        <input type="text" id="projectTitle" name="projectTitle" required placeholder="Project Title">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="projectDescription" name="projectDescription" required placeholder="Project Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="technologies" name="technologies" required placeholder="Technologies Used (comma separated)">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="projectUrl" name="projectUrl" placeholder="Project URL/Demo Link">
+                    </div>
+                </div>
+
+                <!-- References Section -->
+                <div class="form-section references">
+                    <h2>References</h2>
+                    <div class="form-group">
+                        <input type="text" id="refName" name="refName" placeholder="Reference Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="refPosition" name="refPosition" placeholder="Reference Position">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="refCompany" name="refCompany" placeholder="Reference Company">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="refEmail" name="refEmail" placeholder="Reference Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="refPhone" name="refPhone" placeholder="Reference Phone">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn primary-btn">Generate CV</button>
+                    <button type="button" class="btn secondary-btn" onclick="resetForm()">Reset Form</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        function resetForm() {
+            document.getElementById('portfolioForm').reset();
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        }
+
+        function getStyleConfig(style) {
+            const styles = {
+                modern: {
+                    primaryColor: [52, 152, 219],
+                    secondaryColor: [44, 62, 80],
+                    accentColor: [231, 76, 60],
+                    titleSize: 24,
+                    sectionSize: 16,
+                    textSize: 12,
+                    lineHeight: 7,
+                    margin: 20
+                },
+                classic: {
+                    primaryColor: [0, 0, 0],
+                    secondaryColor: [51, 51, 51],
+                    accentColor: [102, 102, 102],
+                    titleSize: 22,
+                    sectionSize: 14,
+                    textSize: 11,
+                    lineHeight: 6,
+                    margin: 25
+                },
+                creative: {
+                    primaryColor: [155, 89, 182],
+                    secondaryColor: [52, 73, 94],
+                    accentColor: [230, 126, 34],
+                    titleSize: 26,
+                    sectionSize: 18,
+                    textSize: 12,
+                    lineHeight: 8,
+                    margin: 15
+                }
+            };
+            return styles[style] || styles.modern;
+        }
+
+        function generatePDF(style) {
+            const config = getStyleConfig(style);
+            const doc = new jsPDF();
+            let y = config.margin;
+            
+            // Title
+            doc.setFontSize(config.titleSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text('Curriculum Vitae', 105, y, { align: 'center' });
+            y += config.lineHeight * 2;
+
+            // Personal Information
+            doc.setFontSize(config.sectionSize);
+            doc.setTextColor(...config.primaryColor);
+            doc.text('Personal Information', config.margin, y);
+            y += config.lineHeight;
+
+            doc.setFontSize(config.textSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text(`Name: ${document.getElementById('fullName').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`Email: ${document.getElementById('email').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`Phone: ${document.getElementById('phone').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`Location: ${document.getElementById('location').value}`, config.margin, y);
+            y += config.lineHeight * 1.5;
+
+            // Professional Summary
+            if (document.getElementById('summary').value) {
+                doc.text('Professional Summary:', config.margin, y);
+                y += config.lineHeight;
+                doc.text(document.getElementById('summary').value, config.margin, y, { maxWidth: 170 });
+                y += config.lineHeight * 2;
+            }
+
+            // Social Links
+            if (document.getElementById('linkedin').value || document.getElementById('github').value || document.getElementById('portfolio').value) {
+                doc.setFontSize(config.sectionSize);
+                doc.setTextColor(...config.primaryColor);
+                doc.text('Professional Links', config.margin, y);
+                y += config.lineHeight;
+
+                doc.setFontSize(config.textSize);
+                doc.setTextColor(...config.secondaryColor);
+                
+                if (document.getElementById('linkedin').value) {
+                    doc.text(`LinkedIn: ${document.getElementById('linkedin').value}`, config.margin, y);
+                    y += config.lineHeight;
+                }
+                if (document.getElementById('github').value) {
+                    doc.text(`GitHub: ${document.getElementById('github').value}`, config.margin, y);
+                    y += config.lineHeight;
+                }
+                if (document.getElementById('portfolio').value) {
+                    doc.text(`Portfolio: ${document.getElementById('portfolio').value}`, config.margin, y);
+                    y += config.lineHeight;
+                }
+                y += config.lineHeight;
+            }
+
+            // Education
+            doc.setFontSize(config.sectionSize);
+            doc.setTextColor(...config.primaryColor);
+            doc.text('Education', config.margin, y);
+            y += config.lineHeight;
+
+            doc.setFontSize(config.textSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text(`${document.getElementById('school').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`${document.getElementById('degree').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`${formatDate(document.getElementById('eduStartDate').value)} - ${formatDate(document.getElementById('eduEndDate').value)}`, config.margin, y);
+            y += config.lineHeight;
+            
+            if (document.getElementById('achievements').value) {
+                doc.text('Achievements:', config.margin, y);
+                y += config.lineHeight;
+                doc.text(document.getElementById('achievements').value, config.margin + 10, y, { maxWidth: 150 });
+                y += config.lineHeight * 2;
+            }
+
+            // Certifications
+            if (document.getElementById('certName').value) {
+                doc.setFontSize(config.sectionSize);
+                doc.setTextColor(...config.primaryColor);
+                doc.text('Certifications', config.margin, y);
+                y += config.lineHeight;
+
+                doc.setFontSize(config.textSize);
+                doc.setTextColor(...config.secondaryColor);
+                doc.text(`${document.getElementById('certName').value}`, config.margin, y);
+                y += config.lineHeight;
+                doc.text(`Issuer: ${document.getElementById('certIssuer').value}`, config.margin, y);
+                y += config.lineHeight;
+                if (document.getElementById('certDate').value) {
+                    doc.text(`Date: ${formatDate(document.getElementById('certDate').value)}`, config.margin, y);
+                    y += config.lineHeight;
+                }
+                if (document.getElementById('certId').value) {
+                    doc.text(`Credential: ${document.getElementById('certId').value}`, config.margin, y);
+                    y += config.lineHeight * 2;
+                }
+            }
+
+            // Languages
+            if (document.getElementById('languages').value) {
+                doc.setFontSize(config.sectionSize);
+                doc.setTextColor(...config.primaryColor);
+                doc.text('Languages', config.margin, y);
+                y += config.lineHeight;
+
+                doc.setFontSize(config.textSize);
+                doc.setTextColor(...config.secondaryColor);
+                doc.text(document.getElementById('languages').value, config.margin, y);
+                y += config.lineHeight * 2;
+            }
+
+            // Skills
+            doc.setFontSize(config.sectionSize);
+            doc.setTextColor(...config.primaryColor);
+            doc.text('Skills', config.margin, y);
+            y += config.lineHeight;
+
+            doc.setFontSize(config.textSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text('Technical Skills:', config.margin, y);
+            y += config.lineHeight;
+            const technicalSkills = document.getElementById('technicalSkills').value.split(',').map(skill => skill.trim());
+            doc.text(technicalSkills.join(', '), config.margin + 10, y, { maxWidth: 150 });
+            y += config.lineHeight * 2;
+
+            doc.text('Soft Skills:', config.margin, y);
+            y += config.lineHeight;
+            const softSkills = document.getElementById('softSkills').value.split(',').map(skill => skill.trim());
+            doc.text(softSkills.join(', '), config.margin + 10, y, { maxWidth: 150 });
+            y += config.lineHeight * 2;
+
+            if (document.getElementById('tools').value) {
+                doc.text('Tools & Technologies:', config.margin, y);
+                y += config.lineHeight;
+                const tools = document.getElementById('tools').value.split(',').map(tool => tool.trim());
+                doc.text(tools.join(', '), config.margin + 10, y, { maxWidth: 150 });
+                y += config.lineHeight * 2;
+            }
+
+            // Add new page if content exceeds current page
+            if (y > 250) {
+                doc.addPage();
+                y = config.margin;
+            }
+
+            // Work Experience
+            doc.setFontSize(config.sectionSize);
+            doc.setTextColor(...config.primaryColor);
+            doc.text('Work Experience', config.margin, y);
+            y += config.lineHeight;
+
+            doc.setFontSize(config.textSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text(`${document.getElementById('company').value} - ${document.getElementById('position').value}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text(`${formatDate(document.getElementById('workStartDate').value)} - ${formatDate(document.getElementById('workEndDate').value)}`, config.margin, y);
+            y += config.lineHeight;
+            doc.text('Responsibilities:', config.margin, y);
+            y += config.lineHeight;
+            const responsibilities = document.getElementById('responsibilities').value;
+            doc.text(responsibilities, config.margin + 10, y, { maxWidth: 150 });
+            y += config.lineHeight * 2;
+
+            if (document.getElementById('achievements_work').value) {
+                doc.text('Achievements:', config.margin, y);
+                y += config.lineHeight;
+                doc.text(document.getElementById('achievements_work').value, config.margin + 10, y, { maxWidth: 150 });
+                y += config.lineHeight * 2;
+            }
+
+            // Projects
+            doc.setFontSize(config.sectionSize);
+            doc.setTextColor(...config.primaryColor);
+            doc.text('Projects', config.margin, y);
+            y += config.lineHeight;
+
+            doc.setFontSize(config.textSize);
+            doc.setTextColor(...config.secondaryColor);
+            doc.text(document.getElementById('projectTitle').value, config.margin, y);
+            y += config.lineHeight;
+            const projectDesc = document.getElementById('projectDescription').value;
+            doc.text(projectDesc, config.margin, y, { maxWidth: 170 });
+            y += config.lineHeight * 2;
+            const technologies = document.getElementById('technologies').value.split(',').map(tech => tech.trim());
+            doc.text(`Technologies: ${technologies.join(', ')}`, config.margin, y, { maxWidth: 170 });
+            y += config.lineHeight;
+            
+            if (document.getElementById('projectUrl').value) {
+                doc.text(`Demo: ${document.getElementById('projectUrl').value}`, config.margin, y);
+                y += config.lineHeight * 2;
+            }
+
+            // References
+            if (document.getElementById('refName').value) {
+                doc.setFontSize(config.sectionSize);
+                doc.setTextColor(...config.primaryColor);
+                doc.text('References', config.margin, y);
+                y += config.lineHeight;
+
+                doc.setFontSize(config.textSize);
+                doc.setTextColor(...config.secondaryColor);
+                doc.text(`${document.getElementById('refName').value}`, config.margin, y);
+                y += config.lineHeight;
+                doc.text(`${document.getElementById('refPosition').value} at ${document.getElementById('refCompany').value}`, config.margin, y);
+                y += config.lineHeight;
+                doc.text(`Email: ${document.getElementById('refEmail').value}`, config.margin, y);
+                y += config.lineHeight;
+                doc.text(`Phone: ${document.getElementById('refPhone').value}`, config.margin, y);
+            }
+
+            const fileName = `${document.getElementById('fullName').value.replace(/\s+/g, '_')}_CV_${style}.pdf`;
+            doc.save(fileName);
+        }
+
+        document.getElementById('portfolioForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedStyle = document.querySelector('input[name="cvStyle"]:checked').value;
+            generatePDF(selectedStyle);
+        });
+    </script>
+</body>
+</html>
